@@ -1,0 +1,340 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1b2340, #050814 55%, #02030a);
+  color: #f8fafc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.app-root {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1b2340, #050814 55%, #02030a);
+  color: #f9fafb;
+  position: relative;
+}
+
+/* Fondo estrellas */
+
+.star-bg-wrapper {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  box-shadow: 0 0 8px rgba(248, 250, 252, 0.8);
+  opacity: 0.6;
+}
+
+/* Secciones */
+
+
+.section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 4rem 1.5rem;
+  z-index: 1;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.section-intro {
+  text-align: center;
+  min-height: 87vh;
+}
+
+.intro-small {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+}
+
+.intro-title {
+  font-size: 2.1rem;
+  margin: 0 0 0.75rem;
+}
+
+.intro-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+.scroll-hint {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+/* Sección fotos */
+
+.section-photos {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-bottom: 1.5rem;
+}
+
+.photo-stars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.photo-star-card {
+  background: rgba(15, 23, 42, 0.85);
+  border-radius: 1.25rem;
+  padding: 0.75rem 0.75rem 0.6rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-star-frame {
+  position: relative;
+  width: 100%;
+  max-width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 2px solid rgba(248, 250, 252, 0.85);
+  box-shadow: 0 0 25px rgba(248, 250, 252, 0.35);
+}
+
+.photo-star-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-star-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(251, 191, 36, 0.35), transparent);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.photo-star-label {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: #e5e7eb;
+}
+
+/* Sección corazón */
+
+.section-heart {
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.heart-section,
+.heart-text {
+  transform: none !important;
+}
+
+
+.heart-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+
+.heart-text h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.7rem;
+}
+
+.heart-text p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e5e7eb;
+}
+
+/* Responsive un poco más grande para pantallas anchas */
+
+@media (min-width: 768px) {
+  .section-inner {
+    max-width: 640px;
+  }
+
+  .intro-title {
+    font-size: 2.6rem;
+  }
+
+  .photo-stars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .heart-shape {
+    width: 200px;
+    height: 180px;
+  }
+
+  .heart-shape::before,
+  .heart-shape::after {
+    width: 200px;
+    height: 180px;
+  }
+
+  .heart-shape::before {
+    top: -90px;
+  }
+
+  .heart-shape::after {
+    left: 90px;
+  }
+}
+
+/* LO NUEVO */
+
+.photo-stars-wrapper {
+  position: relative;
+  width: 100%;
+  height: 55vh;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* puntito */
+/* el botón solo define la posición y el área clickeable */
+.photo-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transform: translate(-50%, -50%);
+}
+
+/* puntito visual de la estrella */
+.photo-dot::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;        /* más chico = más “estrella” */
+  height: 5px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    #fffbe6 0%,
+    #ffe680 40%,
+    #facc15 70%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 6px rgba(255, 244, 179, 0.9),
+    0 0 10px rgba(250, 204, 21, 0.7);
+}
+
+/* hitbox grande para el dedo, pero invisible */
+.photo-dot-hit {
+  position: absolute;
+  inset: -16px;  /* agrandá o achicá esto para más/menos área */
+  border-radius: 999px;
+}
+
+
+
+/* modal */
+.photo-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  /* background: rgba(15, 23, 42, 0.9); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 50;
+}
+
+.photo-modal-content {
+  background: rgba(15, 23, 42, 0.98);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  max-width: 420px;
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow:
+    0 20px 40px rgba(15, 23, 42, 0.8),
+    0 0 40px rgba(248, 250, 252, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-modal-img {
+  width: 100%;
+  max-height: 60vh;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.photo-modal-label {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  text-align: center;
+}
+
+.photo-modal-close {
+  border: none;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #fb7185, #f97316);
+  color: white;
+  cursor: pointer;
+}
