@@ -1,7 +1,7 @@
 import { useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import "./App.css";
-import StarBackground from "./Components/StarBackground";
+import StarBackground from "./components/StarBackground";
 import PhotoStars from "./components/PhotoStars";
 import HeartSection from "./components/HeartSection";
 
